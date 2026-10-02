@@ -1,37 +1,31 @@
 ---
-layout: about
+layout: academic
 title: about
 permalink: /
-subtitle: Master’s Student · <a href="https://ami.kaist.ac.kr/">AMI Lab</a> · KAIST
-
-profile:
-  align: right
-  image: profile.jpg
-  image_circular: false
-  more_info: >
-    <p>Advanced Machine Intelligence Lab</p>
-    <p>KAIST</p>
-
-selected_papers: false
-social: true
-
-announcements:
-  enabled: false
-  scrollable: false
-  limit: 3
-
-latest_posts:
-  enabled: false
 ---
 
-I am a master’s student at [KAIST](https://www.kaist.ac.kr/), where I am a member of the [Advanced Machine Intelligence Lab (AMI Lab)](https://ami.kaist.ac.kr/). I joined the lab in March 2026.
+<p class="lede">I am a master’s student at <a href="https://www.kaist.ac.kr/">KAIST</a> and a member of the <a href="https://ami.kaist.ac.kr/">Advanced Machine Intelligence Lab (AMI Lab)</a>. My research interests are 3D reconstruction, 3D scene understanding, and neural rendering.</p>
+<p class="intro-secondary">I joined AMI Lab in March 2026.</p>
 
-My research interests include **3D reconstruction**, **3D scene understanding**, and **neural rendering**.
+<section id="research" aria-labelledby="research-title">
+  <h2 id="research-title">Research interests</h2>
+  <ul class="research-topics">
+    <li><span class="topic-index" aria-hidden="true">01</span><span class="topic-name">3D Reconstruction</span></li>
+    <li><span class="topic-index" aria-hidden="true">02</span><span class="topic-name">3D Scene Understanding</span></li>
+    <li><span class="topic-index" aria-hidden="true">03</span><span class="topic-name">Neural Rendering</span></li>
+  </ul>
+</section>
 
-You can reach me at [jwkong3@kaist.ac.kr](mailto:jwkong3@kaist.ac.kr). My [lab profile](https://ami.kaist.ac.kr/2dafdae6-c854-802e-a6a5-d9eb3feee696) is also available.
+<section id="education" aria-labelledby="education-title">
+  <h2 id="education-title">Education</h2>
+  <div class="education-row">
+    <p class="dates">Current</p>
+    <div><h3>Master’s Student</h3><p>KAIST</p><p class="institution">Advanced Machine Intelligence Lab</p></div>
+  </div>
+</section>
 
-## Research interests
-
-- 3D Reconstruction
-- 3D Scene Understanding
-- Neural Rendering
+<section id="publications" aria-labelledby="publications-title">
+  <h2 id="publications-title">Publications</h2>
+  <p class="publication-empty">Publication information will be added here.</p>
+  <div class="publications">{% bibliography %}</div>
+</section>

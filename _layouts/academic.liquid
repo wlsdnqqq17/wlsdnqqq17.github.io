@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'en' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      {% unless page.permalink == '/' %}{{ page.title | capitalize }} · {% endunless %}
+      {{ site.first_name }}
+      {{ site.last_name }}
+    </title>
+    <meta name="author" content="{{ site.first_name }} {{ site.last_name }}">
+    <meta name="description" content="{{ site.description | strip | escape }}">
+    <meta name="theme-color" content="#f5f6f4">
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
+    <link rel="icon" type="image/svg+xml" href="{{ '/assets/img/favicon.svg' | relative_url }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="{{ '/assets/css/academic.css' | relative_url }}">
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <div class="academic-shell">
+      <header class="profile-rail">
+        <a class="portrait-link" href="{{ '/' | relative_url }}" aria-label="Jin-Woo Kong homepage"
+          ><img class="portrait" src="{{ '/assets/img/profile.jpg' | relative_url }}" alt="Jin-Woo Kong" width="689" height="886"
+        ></a>
+        <h1>
+          {{ site.first_name }}
+          {{ site.last_name }}
+        </h1>
+        <p class="role">Master’s Student</p>
+        <p class="contact">
+          <a href="mailto:{{ site.data.socials.email }}">{{ site.data.socials.email }}</a><br>
+          AMI Lab, KAIST
+        </p>
+        <div class="profile-links">
+          <a href="https://github.com/{{ site.data.socials.github_username }}">GitHub</a
+          ><a href="https://ami.kaist.ac.kr/2dafdae6-c854-802e-a6a5-d9eb3feee696">Lab profile</a>
+        </div>
+        <nav aria-label="Sections">
+          <ol>
+            <li><a href="{{ '/' | relative_url }}#research">Research interests</a></li>
+            <li><a href="{{ '/' | relative_url }}#education">Education</a></li>
+            <li><a href="{{ '/' | relative_url }}#publications">Publications</a></li>
+          </ol>
+        </nav>
+      </header>
+      <main id="main">
+        {{ content }}
+        <footer>
+          <span>Jin-Woo Kong · {{ 'now' | date: '%Y' }}</span
+          ><span><a href="https://github.com/alshedivat/al-folio">al-folio</a> · <a href="https://pages.github.com/">GitHub Pages</a></span>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>

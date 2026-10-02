@@ -30,12 +30,15 @@ jobs:
           cache: npm
       - name: Install formatting tools
         run: npm ci
-      - name: Check formatting and template boundaries
-        run: |
-          npm run lint:prettier
-          npm run lint:style-contract
+      - name: Check formatting
+        run: npm run lint:prettier
+      - name: Check upstream starter boundaries
+        if: github.repository == 'alshedivat/al-folio'
+        run: npm run lint:style-contract
       - name: Audit template configuration
         run: bundle exec al-folio upgrade audit --no-fail
+      - name: Audit site layouts
+        run: bundle exec al-folio upgrade overrides audit
       - name: Install image tools
         run: sudo apt-get update && sudo apt-get install -y imagemagick
       - name: Build al-folio

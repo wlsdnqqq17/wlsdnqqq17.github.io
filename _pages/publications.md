@@ -1,9 +1,9 @@
 ---
-layout: page
+layout: academic
 permalink: /publications/
 title: publications
 description:
-nav: true
+nav: false
 nav_order: 1
 ---
 

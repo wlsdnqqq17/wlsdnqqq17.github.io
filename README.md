@@ -13,6 +13,9 @@ Live site: https://wlsdnqqq17.github.io/
 - `_bibliography/papers.bib`: add verified publications; enable `selected_papers` in the about page when ready.
 - `_pages/publications.md`: remove the empty-list message when adding your first publication.
 - `assets/img/profile.jpg`: profile photo.
+- `_layouts/academic.liquid` and `assets/css/academic.css`: site-owned sidebar layout, inspired by https://shin-dong-yeon.github.io/.
+
+The custom academic layout does not shadow a gem-owned layout. The al-folio theme, plugins, bibliography support, and automatic deployment remain in place. The upstream starter-boundary check applies only to the upstream repository; user-site layouts are supported by al-folio.
 
 Push to `main` to build and publish automatically using GitHub Actions.
 The publication list is intentionally empty until actual papers are provided.
