@@ -1,0 +1,72 @@
+name: Build and deploy homepage
+
+on:
+  push:
+    branches: [main, al-folio-migration]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: homepage-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3.5"
+          bundler-cache: true
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+      - name: Install formatting tools
+        run: npm ci
+      - name: Check formatting and template boundaries
+        run: |
+          npm run lint:prettier
+          npm run lint:style-contract
+      - name: Audit template configuration
+        run: bundle exec al-folio upgrade audit --no-fail
+      - name: Install image tools
+        run: sudo apt-get update && sudo apt-get install -y imagemagick
+      - name: Build al-folio
+        env:
+          JEKYLL_ENV: production
+        run: bundle exec jekyll build --baseurl ""
+      - name: Verify profile and local links
+        run: python3 bin/verify-homepage.py
+      - name: Upload build for inspection
+        uses: actions/upload-artifact@v4
+        with:
+          name: homepage-build
+          path: _site
+          retention-days: 7
+      - name: Upload GitHub Pages artifact
+        if: github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
