@@ -197,7 +197,63 @@ h2 {
   margin: 0;
 }
 .publications ol {
-  padding-left: 20px;
+  padding: 0;
+  list-style: none;
+}
+.publications li {
+  margin-bottom: 28px;
+}
+.publications h2.bibliography {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+.publication-entry {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+.publication-figure {
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  overflow: hidden;
+  background: white;
+}
+.publication-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.publication-info h3 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 600;
+}
+.publication-authors,
+.publication-venue {
+  font-size: 0.875rem;
+  margin: 0 0 8px;
+}
+.publication-venue {
+  color: var(--muted);
+}
+.publication-links {
+  display: flex;
+  gap: 18px;
+  font-size: 0.875rem;
+}
+@media (max-width: 980px) {
+  .publication-entry {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .publication-figure {
+    max-width: 440px;
+  }
 }
 footer {
   display: flex;

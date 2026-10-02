@@ -10,15 +10,15 @@ Live site: https://wlsdnqqq17.github.io/
 - `_config.yml`: name, site metadata, and theme configuration.
 - `_data/socials.yml`: email and GitHub links.
 - `_news/`: dated announcements.
-- `_bibliography/papers.bib`: add verified publications; enable `selected_papers` in the about page when ready.
-- `_pages/publications.md`: remove the empty-list message when adding your first publication.
+- `_bibliography/papers.bib`: publication metadata, figure filenames, and optional `website` / `arxiv` fields.
+- `_layouts/academic_bib.liquid`: publication figures and citation display.
 - `assets/img/profile.jpg`: profile photo.
 - `_layouts/academic.liquid` and `assets/css/academic.css`: site-owned sidebar layout, inspired by https://shin-dong-yeon.github.io/.
 
 The custom academic layout does not shadow a gem-owned layout. The al-folio theme, plugins, bibliography support, and automatic deployment remain in place. The upstream starter-boundary check applies only to the upstream repository; user-site layouts are supported by al-folio.
 
 Push to `main` to build and publish automatically using GitHub Actions.
-The publication list is intentionally empty until actual papers are provided.
+The publication list includes the SIGGRAPH Asia Posters 2026 paper supplied by the author and listed on the AMI Lab website. Project and arXiv links appear only when actual URLs are provided.
 
 ## Previous homepage
 

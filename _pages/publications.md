@@ -7,7 +7,7 @@ nav: false
 nav_order: 1
 ---
 
-Publication information will be added here.
+## Publications
 
 <div class="publications">
 {% bibliography %}

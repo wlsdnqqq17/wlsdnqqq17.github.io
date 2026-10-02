@@ -1,0 +1,33 @@
+<article class="publication-entry">
+  {% if entry.preview %}
+    <a
+      class="publication-figure"
+      href="{{ entry.preview | prepend: '/assets/img/' | relative_url }}"
+      aria-label="View figure for {{ entry.title | escape }}"
+    >
+      <img
+        src="{{ entry.preview | prepend: '/assets/img/' | relative_url }}"
+        alt="Comparison of an existing benchmark with a single inserted object and a benchmark supporting reflections between multiple objects"
+        loading="lazy"
+      >
+    </a>
+  {% endif %}
+  <div class="publication-info">
+    <h3>{{ entry.title }}</h3>
+    <p class="publication-authors">{{ entry.author_display | replace: 'Jin-Woo Kong', '<strong>Jin-Woo Kong</strong>' }}</p>
+    <p class="publication-venue">
+      {{ entry.booktitle }}
+      {{ entry.year }}
+    </p>
+    {% if entry.website or entry.arxiv %}
+      <div class="publication-links">
+        {% if entry.website -%}
+          <a href="{{ entry.website }}">Project page</a>
+        {%- endif %}
+        {% if entry.arxiv -%}
+          <a href="https://arxiv.org/abs/{{ entry.arxiv }}">arXiv</a>
+        {%- endif %}
+      </div>
+    {% endif %}
+  </div>
+</article>

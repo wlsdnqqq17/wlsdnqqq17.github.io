@@ -24,9 +24,13 @@ html = homepage.read_text()
 assert "Jin-Woo" in html and "Kong" in html
 assert "jwkong3" in html and "kaist.ac.kr" in html
 assert "3D Reconstruction" in html and "Neural Rendering" in html
+assert "Prof. Tae-Hyun Oh" in html
+assert "Assessing Inter-Object Reflection Consistency" in html
+assert "SIGGRAPH Asia Posters" in html and "GeonU Kim" in html
 assert "Einstein" not in html and "Write your biography here" not in html
 
 for page in (homepage, root / "publications/index.html"):
+    assert "Assessing Inter-Object Reflection Consistency" in page.read_text()
     parser = Links()
     parser.feed(page.read_text())
     for value in parser.targets:
